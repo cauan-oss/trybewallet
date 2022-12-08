@@ -1,1 +1,5 @@
-// Coloque aqui suas actions
+// ACTIONS CREATORS
+export const addEmail = (email) => ({
+    type: ADD_EMAIL,
+    email,
+  })
