@@ -71,11 +71,14 @@ class Login extends React.Component {
           Entrar
 
         </button>
-    </div>);
+
+      </div>
+    );
   }
 }
 
 Login.propTypes = {
+  dispatch: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
