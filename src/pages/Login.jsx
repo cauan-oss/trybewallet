@@ -21,15 +21,7 @@ class Login extends React.Component {
     const numberSix = 6;
     const validatePassword = senha.length >= numberSix;
     const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/gi;
-    if (emailRegex.test(email) && validatePassword) {
-      this.setState({
-        isValidButton: false,
-      });
-    } else {
-      this.setState({
-        isValidButton: true,
-      });
-    }
+    return !(emailRegex.test(email) && validatePassword);
   };
 
   handle = async (event) => {
@@ -69,7 +61,7 @@ class Login extends React.Component {
           />
         </label>
         <button
-          disabled={ isValidButton }
+          disabled={ this.validate() }
           onClick={ this.handle }
           type="button"
         >
