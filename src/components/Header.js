@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class Header extends Component {
   render() {
     const { emailLogin } = this.props;
     return (
-      <div>
-        <h1>{ emailLogin }</h1>
-      </div>
+      <header>
+        <p>{ emailLogin }</p>
+        <p>
+          <span data-testid="header-currency-field">BRL</span>
+          <span data-testid="total-field">0</span>
+        </p>
+
+      </header>
+
     );
   }
 }
