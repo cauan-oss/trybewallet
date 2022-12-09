@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addEmail } from '../redux/actions';
+import E from 'react-script';
 
 class Login extends React.Component {
   state = {
@@ -23,6 +24,10 @@ class Login extends React.Component {
     if (emailRegex.test(email) && validatePassword) {
       this.setState({
         isValidButton: false,
+      });
+    } else {
+      this.setState({
+        isValidButton: true,
       });
     }
   };
