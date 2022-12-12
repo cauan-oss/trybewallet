@@ -16,7 +16,6 @@ class WalletForm extends Component {
         <label htmlFor="descricao-despesas">
           <input data-testid="description-input" id="descricao-despesas" type="text" />
 
-          <select data-testid="currency-input" name="" id="" />
         </label>
 
       </div>

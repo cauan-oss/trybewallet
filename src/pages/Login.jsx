@@ -2,13 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addEmail } from '../redux/actions';
-import E from 'react-script';
 
 class Login extends React.Component {
   state = {
     email: '',
     senha: '',
-    isValidButton: true,
+    // isValidButton: true,
   };
 
   handleChange = ({ target }) => {
@@ -34,7 +33,7 @@ class Login extends React.Component {
   };
 
   render() {
-    const { email, senha, isValidButton } = this.state;
+    const { email, senha } = this.state;
     return (
       <div>
         <h1>Trybe-wallet</h1>
