@@ -56,7 +56,7 @@ class WalletForm extends Component {
         <p>metodo de pagamento:</p>
         <select data-testid="method-input" name="" id="">
           { metodo.map((sal) => (
-            <option key={ sal } value={ sal }>
+            <option key={ sal } value={ info }>
               { sal }
             </option>
           ))}
@@ -69,6 +69,7 @@ class WalletForm extends Component {
             </option>
           )) }
         </select>
+        <button type="button">Adicionar despesa</button>
 
       </form>
     );
