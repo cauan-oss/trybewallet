@@ -37,14 +37,13 @@ class WalletForm extends Component {
         </label>
 
         <p>moeda:</p>
-        <select>
+        <select data-testid="currency-input">
 
           {
             currencies.map((info) => (
               <option
                 value={ info }
                 key={ info }
-                data-testid="currency-input"
                 name=""
                 id="text-currency"
               >
