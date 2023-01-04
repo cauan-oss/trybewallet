@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addCurrencies } from '../redux/actions';
+import { addCurrencies, addExpenses } from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
-    // infoFetch: '',
+    id: 0,
+    value: '',
+    description: '',
+    currency: '',
+    method: '',
+    tag: '',
+
   };
 
   async componentDidMount() {
@@ -14,12 +20,44 @@ class WalletForm extends Component {
     const json = await response.json();
     const moedas = delete json.USDT && Object.keys(json);
     dispatch(addCurrencies(moedas));
-    console.log(json);
-    // this.setState({ infoFetch: json });
     return json;
   }
 
+  handleChange = ({ target }) => {
+    const { name, value } = target;
+    this.setState({ [name]: value });
+  };
+
+  funcButton = () => {
+    const { dispatch } = this.props;
+    const { id, value, description, currency, method, tag } = this.state;
+    const recebeApi = this.componentDidMount();
+    this.setState((prevState) => ({
+      ...prevState,
+      id: prevState.id + 1,
+    }));
+    const objApi = {
+      id,
+      value,
+      description,
+      currency,
+      method,
+      tag,
+      exchangeRates: recebeApi,
+    };
+    dispatch(addExpenses(objApi));
+    this.setState({
+      id: 0,
+      value: '',
+      description: '',
+      currency: '',
+      method: '',
+      tag: '',
+    });
+  };
+
   render() {
+    const { description, value, currency, method, tag, id } = this.state;
     const { currencies } = this.props;
     const metodo = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
     const categoria = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
@@ -27,17 +65,36 @@ class WalletForm extends Component {
 
       <form>
         <p>valor: </p>
-        <label htmlFor="valor-despesas">
-          <input data-testid="value-input" id="valor-despesas" type="text" />
+        <label htmlFor="valor">
+          <input
+            onChange={ this.handleChange }
+            name="value"
+            value={ value }
+            data-testid="value-input"
+            id="valor"
+            type="text"
+          />
         </label>
         <p>descricao:</p>
         <label htmlFor="descricao-despesas">
-          <input data-testid="description-input" id="descricao-despesas" type="text" />
+          <input
+            onChange={ this.handleChange }
+            name="description"
+            value={ description }
+            data-testid="description-input"
+            id="descricao-despesas"
+            type="text"
+          />
 
         </label>
 
         <p>moeda:</p>
-        <select data-testid="currency-input">
+        <select
+          value={ currency }
+          name="currency"
+          onChange={ this.handleChange }
+          data-testid="currency-input"
+        >
 
           {
             currencies.map((info) => (
@@ -68,7 +125,7 @@ class WalletForm extends Component {
             </option>
           )) }
         </select>
-        <button type="button">Adicionar despesa</button>
+        <button onClick={ this.funcButton } type="button">Adicionar despesa</button>
 
       </form>
     );
