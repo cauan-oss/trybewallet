@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addCurrencies, addExpenses } from '../redux/actions';
+import { addCurrencies, addExpenses, fetchExpenses } from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
     id: 0,
     value: '',
     description: '',
-    currency: '',
-    method: '',
-    tag: '',
+    currency: 'USDT',
+    method: 'Dinheiro',
+    tag: 'Alimentação',
 
   };
 
@@ -28,31 +28,27 @@ class WalletForm extends Component {
     this.setState({ [name]: value });
   };
 
-  funcButton = () => {
+  funcButton = async () => {
     const { dispatch } = this.props;
     const { id, value, description, currency, method, tag } = this.state;
-    const recebeApi = this.componentDidMount();
-    this.setState((prevState) => ({
-      ...prevState,
-      id: prevState.id + 1,
-    }));
-    const objApi = {
+    const exchangeRates = await dispatch(fetchExpenses());
+    const expenses = {
       id,
       value,
       description,
       currency,
       method,
       tag,
-      exchangeRates: recebeApi,
+      exchangeRates,
     };
-    dispatch(addExpenses(objApi));
+    dispatch(addExpenses(expenses));
     this.setState({
-      id: 0,
+      id: (id + 1),
       value: '',
       description: '',
-      currency: '',
-      method: '',
-      tag: '',
+      currency: 'USDT',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
     });
   };
 
