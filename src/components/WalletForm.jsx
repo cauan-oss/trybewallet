@@ -4,15 +4,19 @@ import PropTypes from 'prop-types';
 import { addCurrencies, addExpenses, fetchExpenses } from '../redux/actions';
 
 class WalletForm extends Component {
-  state = {
-    id: 0,
-    value: '',
-    description: '',
-    currency: 'USDT',
-    method: 'Dinheiro',
-    tag: 'Alimentação',
+  constructor() {
+    super();
 
-  };
+    this.state = {
+      id: 0,
+      value: '',
+      description: '',
+      currency: 'USDT',
+      method: 'Dinheiro',
+      tag: '',
+
+    };
+  }
 
   async componentDidMount() {
     const { dispatch } = this.props;
