@@ -3,6 +3,7 @@ import chamaApi from '../../components/servicesApi';
 export const ADD_EMAIL_INFO = 'ADD_EMAIL_INFO';
 export const ADD_CURRENCIES = 'ADD_CURRENCIES';
 export const ADD_EXPENSES = 'ADD_EXPENSES';
+export const ADD_DELETE = 'ADD_DELETE';
 
 export const addEmail = (emailInfo) => ({
   type: ADD_EMAIL_INFO,
@@ -24,3 +25,8 @@ export const fetchExpenses = () => async () => {
   delete data.USDT;
   return data;
 };
+
+export const actionDelete = (id, expense) => ({
+  type: ADD_DELETE,
+  payload: expense.filter((x) => x.id !== id),
+});

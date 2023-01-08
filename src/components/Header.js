@@ -7,6 +7,7 @@ class Header extends Component {
     const { emailLogin, expenses } = this.props;
     const total = expenses.reduce((a, b) => a + b.value
     * b.exchangeRates[b.currency].ask, 0);
+    console.log(expenses);
     return (
       <header>
         <p data-testid="email-field">{ emailLogin }</p>
@@ -23,7 +24,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => ({
   emailLogin: state.user.email,
-  expenses: state.wallet.expenses,
+  ...state.wallet,
 });
 
 Header.propTypes = {
