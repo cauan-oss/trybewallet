@@ -22,7 +22,7 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: action.payload,
-    }
+    };
   default: return state;
   }
 };
