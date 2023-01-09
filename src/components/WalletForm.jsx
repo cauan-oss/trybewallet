@@ -5,7 +5,7 @@ import { addCurrencies, addExpenses, fetchExpenses } from '../redux/actions';
 
 class WalletForm extends Component {
   constructor() {
-    const melao = 'Alimentação';
+    // const melao = 'Alimentação';
     super();
 
     this.state = {
@@ -14,7 +14,7 @@ class WalletForm extends Component {
       description: '',
       currency: 'USD',
       method: 'Dinheiro',
-      tag: melao,
+      tag: 'Alimentação',
 
     };
   }
@@ -53,7 +53,7 @@ class WalletForm extends Component {
       description: '',
       currency: 'USD',
       method: 'Dinheiro',
-      tag: 'Alimentação',
+      tag: '',
     });
   };
 
