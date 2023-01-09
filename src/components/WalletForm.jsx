@@ -58,7 +58,7 @@ class WalletForm extends Component {
   };
 
   render() {
-    const { description, value, currency } = this.state;
+    const { description, value, currency, method, tag } = this.state;
     const { currencies } = this.props;
     const metodo = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
     const categoria = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
@@ -111,7 +111,12 @@ class WalletForm extends Component {
           }
         </select>
         <p>metodo de pagamento:</p>
-        <select data-testid="method-input" name="" id="">
+        <select
+          data-testid="method-input"
+          onChange={ this.handleChange }
+          name="method"
+          value={ method }
+        >
           { metodo.map((sal) => (
             <option key={ sal } value={ sal }>
               { sal }
@@ -119,7 +124,12 @@ class WalletForm extends Component {
           ))}
         </select>
         <p>Categoria:</p>
-        <select data-testid="tag-input" name="" id="">
+        <select
+          data-testid="tag-input"
+          onChange={ this.handleChange }
+          name="tag"
+          value={ tag }
+        >
           { categoria.map((category) => (
             <option key={ category } value="">
               { category }
