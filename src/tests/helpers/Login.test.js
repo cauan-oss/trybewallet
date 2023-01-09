@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import App from '../../App';
-import { renderWithRouter, renderWithRouterAndRedux } from './renderWith';
+import { renderWithRouterAndRedux } from './renderWith';
 import Wallet from '../../pages/Wallet';
 
 describe('testando pagina de login', () => {
@@ -34,9 +34,8 @@ describe('testando pagina de login', () => {
     userEvent.click(botao);
   });
   test('teste de component wallet', () => {
-    renderWithRouter(<Wallet />);
+    renderWithRouterAndRedux(<Wallet />);
     const valor = screen.getByText(/valor:/i);
     expect(valor).toBeInTheDocument();
   });
-
 });
