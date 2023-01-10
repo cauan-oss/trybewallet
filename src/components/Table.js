@@ -19,7 +19,7 @@ class Table extends Component {
               <th>Tag</th>
               <th>Método de pagamento</th>
               <th>Valor</th>
-              <th>Moeda;</th>
+              <th>Moeda</th>
               <th>Câmbio utilizado</th>
               <th>Valor convertido</th>
               <th>Moeda de conversão </th>

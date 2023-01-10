@@ -30,6 +30,7 @@ class WalletForm extends Component {
 
   handleChange = ({ target }) => {
     const { name, value } = target;
+    console.log(target);
     this.setState({ [name]: value });
   };
 
@@ -131,7 +132,7 @@ class WalletForm extends Component {
           value={ tag }
         >
           { categoria.map((category) => (
-            <option key={ category } value="">
+            <option key={ category }>
               { category }
             </option>
           )) }
