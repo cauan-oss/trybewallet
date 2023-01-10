@@ -38,6 +38,7 @@ class Table extends Component {
                   <td>{ x.exchangeRates[x.currency].name}</td>
                   <td>{ (x.exchangeRates[x.currency].ask * 1).toFixed(2) }</td>
                   <td>{ (x.value * x.exchangeRates[x.currency].ask).toFixed(2) }</td>
+                  <td>real</td>
                   <td>
                     <button
                       type="button"
