@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
 import React from 'react';
-import userEvent from '@testing-library/user-event';
+// import userEvent from '@testing-library/user-event';
 import App from '../../App';
 import { renderWithRouterAndRedux } from './renderWith';
-import Wallet from '../../redux/reducers/wallet';
-import Header from '../../components/Header';
+// import Wallet from '../../redux/reducers/wallet';
+// import Header from '../../components/Header';
 
 const mockGlobal = {
   user: {
@@ -30,9 +30,8 @@ describe('testando pagina de login', () => {
 
     const renderEmail = await screen.findByText('cauan@gmail.com');
     expect(renderEmail).toBeInTheDocument();
-    
-    const textValue = screen.getByText(/valor:/i);
-   expect(textValue).toBeInTheDocument();
-  });
 
+    const textValue = screen.getByText(/valor:/i);
+    expect(textValue).toBeInTheDocument();
+  });
 });
