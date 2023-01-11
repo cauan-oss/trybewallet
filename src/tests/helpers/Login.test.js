@@ -3,7 +3,7 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import App from '../../App';
 import { renderWithRouterAndRedux } from './renderWith';
-import Wallet from '../../pages/Wallet';
+// import Wallet from '../../pages/Wallet';
 
 describe('testando pagina de login', () => {
   test('testando elementos da pagina', () => {
