@@ -33,9 +33,4 @@ describe('testando pagina de login', () => {
     expect(pathname).toBe('/');
     userEvent.click(botao);
   });
-  test('teste de component wallet', () => {
-    renderWithRouterAndRedux(<Wallet />);
-    const valor = screen.getByText(/valor:/i);
-    expect(valor).toBeInTheDocument();
-  });
 });

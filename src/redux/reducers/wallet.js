@@ -19,7 +19,6 @@ const wallet = (state = INITIAL_STATE, action) => {
     };
 
   case ADD_DELETE:
-    console.log(expenses);
     return {
       ...state,
       expenses: action.payload,
