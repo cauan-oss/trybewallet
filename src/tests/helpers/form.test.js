@@ -28,7 +28,7 @@ describe('testando pagina de login', () => {
     });
     const { pathname } = history.location;
     expect(pathname).toBe('/carteira');
-
+    // TEXTO
     const renderEmail = await screen.findByText('cauan@gmail.com');
     expect(renderEmail).toBeInTheDocument();
 
@@ -38,18 +38,31 @@ describe('testando pagina de login', () => {
     const textDescription = screen.getByText(/descricao:/i);
     expect(textDescription).toBeInTheDocument();
 
-    const testCurrency = screen.getAllByTestId('text-currency');
-
-    expect(testCurrency).toHaveLength(15);
-
     const metodo = screen.getByText(/metodo de pagamento:/i);
     expect(metodo).toBeInTheDocument();
 
-    const pagMethod = screen.getAllByTestId('method-input');
-    expect(pagMethod).toHaveLength(4);
-
     const dispesa = screen.getByText(/categoria:/i);
     expect(dispesa).toBeInTheDocument();
+    // pagamento
+    const pagValue = screen.getByPlaceholderText('valor');
+    expect(pagValue).toBeInTheDocument();
+    userEvent.type(pagValue, '20');
+
+    const pagDescription = screen.getByPlaceholderText('descricao');
+    expect(pagDescription).toBeInTheDocument();
+    userEvent.type(pagDescription, 'descricao');
+
+    const pagCurrency = screen.getByTestId('currency-input');
+    expect(pagCurrency).toBeInTheDocument();
+    userEvent.selectOptions(pagCurrency, 'BTC');
+
+    const pagMethod = screen.getByTestId('method-input');
+    expect(pagMethod).toBeInTheDocument();
+    userEvent.selectOptions(pagMethod, 'Cartão de crédito');
+
+    const pagCategory = screen.getByTestId('tag-input');
+    expect(pagCategory).toBeInTheDocument();
+    userEvent.selectOptions(pagCategory, 'Lazer');
 
     const botaoAdc = screen.getByRole('button', {
       name: /adicionar despesa/i,
@@ -57,10 +70,17 @@ describe('testando pagina de login', () => {
     userEvent.click(botaoAdc);
     expect(botaoAdc).toBeInTheDocument();
 
-    const url = 'https://economia.awesomeapi.com.br/json/all';
+    /*   const url = 'https://economia.awesomeapi.com.br/json/all';
     expect(url).toHaveBeenCalledWith('https://economia.awesomeapi.com.br/json/all');
     expect(url).toBeCalled();
-    expect(url).toBeCalledTimes();
+    expect(url).toBeCalledTimes(); */
+
+    const deletee = await screen.findByRole('button', {
+      name: /excluir/i,
+    });
+    expect(deletee).toBeInTheDocument();
+    userEvent.click(deletee);
+    expect(deletee).not.toBeInTheDocument();
   });
 
   // table

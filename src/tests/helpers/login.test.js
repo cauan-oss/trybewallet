@@ -22,7 +22,7 @@ describe('testando pagina de login', () => {
     expect(botao).toBeInTheDocument();
     expect(botao.disabled).toBe(true);
 
-    userEvent.type(input, 'cauan@gmail.com');
+    userEvent.type(input, 'cauan@gmail.com', 50);
     expect(input.value).toBe('cauan@gmail.com');
 
     userEvent.type(inputPassword, '123456');

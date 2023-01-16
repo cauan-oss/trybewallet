@@ -30,7 +30,6 @@ class WalletForm extends Component {
 
   handleChange = ({ target }) => {
     const { name, value } = target;
-    console.log(target);
     this.setState({ [name]: value });
   };
 
@@ -106,8 +105,6 @@ class WalletForm extends Component {
                 value={ info }
                 key={ info }
                 name=""
-                data-testid="text-currency"
-
               >
                 { info }
               </option>
@@ -122,7 +119,7 @@ class WalletForm extends Component {
           value={ method }
         >
           { metodo.map((sal) => (
-            <option data-testid="method-input" key={ sal } value={ sal }>
+            <option key={ sal } value={ sal }>
               { sal }
             </option>
           ))}
@@ -136,7 +133,6 @@ class WalletForm extends Component {
         >
           { categoria.map((category) => (
             <option
-              data-testid="tag-input"
               key={ category }
             >
               { category }
