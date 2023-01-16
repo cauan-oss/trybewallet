@@ -69,6 +69,7 @@ class WalletForm extends Component {
         <p>valor: </p>
         <label htmlFor="valor">
           <input
+            placeholder="valor"
             onChange={ this.handleChange }
             name="value"
             value={ value }
@@ -80,6 +81,7 @@ class WalletForm extends Component {
         <p>descricao:</p>
         <label htmlFor="descricao-despesas">
           <input
+            placeholder="descricao"
             onChange={ this.handleChange }
             name="description"
             value={ description }
@@ -104,7 +106,8 @@ class WalletForm extends Component {
                 value={ info }
                 key={ info }
                 name=""
-                id="text-currency"
+                data-testid="text-currency"
+
               >
                 { info }
               </option>
@@ -119,20 +122,23 @@ class WalletForm extends Component {
           value={ method }
         >
           { metodo.map((sal) => (
-            <option key={ sal } value={ sal }>
+            <option data-testid="method-input" key={ sal } value={ sal }>
               { sal }
             </option>
           ))}
         </select>
         <p>Categoria:</p>
         <select
-          data-testid="tag-input"
           onChange={ this.handleChange }
           name="tag"
           value={ tag }
+          data-testid="tag-input"
         >
           { categoria.map((category) => (
-            <option key={ category }>
+            <option
+              data-testid="tag-input"
+              key={ category }
+            >
               { category }
             </option>
           )) }

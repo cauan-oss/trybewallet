@@ -34,3 +34,29 @@ describe('testando pagina de login', () => {
     userEvent.click(botao);
   });
 });
+
+/* describe('verifica se após clicar no botão "Entar" muda para página "/carteira"', () => {
+  test('se após clicar no botão "Entrar" a página muda para "/carteira"', () => {
+    const { history } = renderWithRouterAndRedux(<App />);
+
+    const enter = {
+      email: 'ezio@ezio.com',
+      password: '123456',
+    };
+
+    const enterButton = screen.getByRole('button', { name: /entrar/i });
+    const emailInput = screen.getByTestId('email-input');
+    const passwordInput = screen.getByTestId('password-input');
+
+    expect(enterButton).toBeInTheDocument();
+
+    userEvent.type(emailInput, enter.email);
+    userEvent.type(passwordInput, enter.password);
+    userEvent.click(enterButton);
+    const { pathname } = history.location;
+
+    expect(pathname).toBe('/carteira');
+  });
+});
+
+ */
