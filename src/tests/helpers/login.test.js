@@ -57,6 +57,4 @@ describe('testando pagina de login', () => {
 
     expect(pathname).toBe('/carteira');
   });
-});
-
- */
+}); */

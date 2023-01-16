@@ -58,13 +58,13 @@ describe('testando pagina de login', () => {
     expect(botaoAdc).toBeInTheDocument();
 
     const url = 'https://economia.awesomeapi.com.br/json/all';
-    await expect(url).toHaveBeenCalledWith('https://economia.awesomeapi.com.br/json/all');
+    expect(url).toHaveBeenCalledWith('https://economia.awesomeapi.com.br/json/all');
     expect(url).toBeCalled();
     expect(url).toBeCalledTimes();
   });
 
   // table
- /*  const descriptTable = screen.getByRole('columnheader', {
+/*  const descriptTable = screen.getByRole('columnheader', {
     name: /descrição/i,
   });
   expect(descriptTable).toBeInTheDocument();
